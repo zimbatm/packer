@@ -85,7 +85,7 @@ Optional:
 
 * `ami_groups` (array of string) - A list of groups that have access
   to launch the resulting AMI(s). By default no groups have permission
-  to launch the AMI.
+  to launch the AMI. An "all" group will make the AMI(s) public.
 
 * `ami_product_codes` (array of string) - A list of product codes to
   associate with the AMI. By default no product codes are associated with
