@@ -157,7 +157,7 @@ func (p *Provisioner) Provision(ui packer.Ui, comm packer.Communicator) error {
 	keyChecker := ssh.CertChecker{
 		UserKeyFallback: func(conn ssh.ConnMetadata, pubKey ssh.PublicKey) (*ssh.Permissions, error) {
 			if conn.User() != "packer-ansible" {
-				ui.Say(fmt.Sprintf("%s is not a valid user"))
+				ui.Say(fmt.Sprintf("%s is not a valid user", conn.User()))
 				return nil, errors.New("authentication failed")
 			}
 

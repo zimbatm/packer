@@ -83,9 +83,9 @@ func (c *adapter) Handle(conn net.Conn, errc chan<- error) error {
 			continue
 		}
 
-		go func(errc chan<- error) {
-			errc <- c.handleSession(newChannel)
-		}(errc)
+		go func(errc chan<- error, channel ssh.NewChannel) {
+			errc <- c.handleSession(channel)
+		}(errc, newChannel)
 	}
 
 	return nil
